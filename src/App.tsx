@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import { formatUnits, parseEther } from 'ethers/lib/utils';
-import { BigNumberInput } from 'big-number-input';
-import { OurBNI } from './components/OurBNI';
+import { parseEther } from 'ethers/lib/utils';
+import { BigNumberInput } from './components/BigNumberInput';
+import { BigNumber } from 'ethers';
 
 function App() {
-  const [cryptoish, setCryptoish] = useState('0')
+  const [cryptoish, setCryptoish] = useState(BigNumber.from('0'))
 
   function handleCrypto(e) {
     const { target } = e;
@@ -26,20 +26,13 @@ function App() {
   return (
     <div>
       <label>Crypto Time</label>
-      <OurBNI
+      <BigNumberInput
         decimals={18}
         value={cryptoish}
         onChange={setCryptoish}
         min='0'
         max='100000000000000000000000000'
       />
-
-      {/*
-      <input
-        value={formatUnits(cryptoish, 18)}
-        onChange={(e) => handleCrypto(e)}
-      />
-      */}
 
       {cryptoish}
     </div>
