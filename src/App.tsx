@@ -2,10 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { parseEther } from 'ethers/lib/utils';
 import { BigNumberInput } from './components/BigNumberInput';
-import { BigNumber } from 'ethers';
 
 function App() {
-  const [cryptoish, setCryptoish] = useState(BigNumber.from('0'))
+  const [cryptoish, setCryptoish] = useState('0')
 
   function handleCrypto(e) {
     const { target } = e;
